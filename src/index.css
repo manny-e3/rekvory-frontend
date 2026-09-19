@@ -1,0 +1,642 @@
+/* Sovereign Recovery - Financial Restitution & Dispute Resolution Engine */
+/* Design Tokens & System Stylesheet (Vanilla CSS) */
+
+:root {
+  /* Color Palette - Core Material & Brand Tokens */
+  --surface: #fcf8ff;
+  --surface-dim: #d8d7f6;
+  --surface-bright: #fcf8ff;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f5f2ff;
+  --surface-container: #eeecff;
+  --surface-container-high: #e7e6ff;
+  --surface-container-highest: #e1e0ff;
+  
+  --on-surface: #181930;
+  --on-surface-variant: #44474f;
+  --inverse-surface: #2d2e46;
+  --inverse-on-surface: #f1efff;
+  --outline: #747780;
+  --outline-variant: #c4c6d0;
+  --surface-tint: #435e8f;
+
+  /* Sovereign Navy Brand Foundation */
+  --primary: #00183b;
+  --primary-navy: #0b2d5b;
+  --on-primary: #ffffff;
+  --primary-container: #0b2d5b;
+  --on-primary-container: #7b96ca;
+  --inverse-primary: #acc7fe;
+
+  /* Recovery Gold Action Catalysts */
+  --secondary: #8f4e00;
+  --recovery-gold: #e68000;
+  --recovery-gold-hover: #d07400;
+  --recovery-gold-active: #ba6700;
+  --on-secondary: #ffffff;
+  --secondary-container: #ff9320;
+  --on-secondary-container: #653500;
+
+  /* Electric Trust Blue */
+  --tertiary: #00173f;
+  --trust-blue: #2f7bff;
+  --trust-blue-hover: #1f67e5;
+  --trust-blue-tint: #f4f8ff;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #002a69;
+  --on-tertiary-container: #5e92ff;
+
+  /* Neutral Canvas, Charcoal & Structural Border */
+  --neutral-charcoal: #1f2037;
+  --neutral-canvas: #e9edf5;
+  --neutral-border: #e9edf5;
+  --neutral-border-focus: #2f7bff;
+  --neutral-placeholder: #8a94a6;
+
+  /* Semantic Status Tokens */
+  --status-success-bg: #ecfdf5;
+  --status-success-text: #047857;
+  --status-success-border: #047857;
+  --status-success-accent: #10b981;
+
+  --status-warning-bg: #fffbeb;
+  --status-warning-text: #b45309;
+  --status-warning-border: #b45309;
+  --status-warning-accent: #f59e0b;
+
+  --status-error-bg: #fef2f2;
+  --status-error-text: #b91c1c;
+  --status-error-border: #b91c1c;
+  --status-error-accent: #ef4444;
+
+  --status-info-bg: #eff6ff;
+  --status-info-text: #1d4ed8;
+  --status-info-border: #1d4ed8;
+  --status-info-accent: #3b82f6;
+
+  /* Typography Font Families */
+  --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Border Radii */
+  --rounded-sm: 0.25rem;   /* 4px */
+  --rounded-default: 0.5rem; /* 8px */
+  --rounded-md: 0.5rem;    /* 8px controls */
+  --rounded-lg: 0.75rem;   /* 12px structural cards */
+  --rounded-xl: 1.5rem;    /* 24px */
+  --rounded-full: 9999px;  /* Pill elements */
+
+  /* Spacing baseline (8pt) */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem;  /* 8px */
+  --space-md: 1rem;    /* 16px */
+  --space-lg: 1.5rem;  /* 24px */
+  --space-xl: 2rem;    /* 32px */
+  --space-2xl: 3rem;   /* 48px */
+  --gutter: 1.5rem;
+  --gutter-sm: 1rem;
+  --margin: 2rem;
+  --margin-sm: 1rem;
+  --max-container: 1280px;
+
+  /* Elevation Tiers */
+  --shadow-tier-1: 0 1px 3px rgba(11, 45, 91, 0.06), 0 4px 12px rgba(11, 45, 91, 0.04);
+  --shadow-tier-2: 0 4px 6px -1px rgba(11, 45, 91, 0.08), 0 10px 24px -3px rgba(11, 45, 91, 0.08);
+  --shadow-tier-3: 0 20px 25px -5px rgba(11, 45, 91, 0.12), 0 10px 10px -5px rgba(11, 45, 91, 0.04);
+  --shadow-authority: 0 8px 24px rgba(11, 45, 91, 0.15);
+  --shadow-gold-focus: 0 0 0 3px rgba(230, 128, 0, 0.35);
+  --shadow-blue-focus: 0 0 0 3px rgba(47, 123, 255, 0.15);
+  --backdrop-scrim: rgba(11, 45, 91, 0.45);
+}
+
+/* CSS Reset & Core Baseline */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--neutral-canvas);
+  color: var(--neutral-charcoal);
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Financial OpenType Tabular Figures */
+.tnum,
+.currency-val,
+.tabular-nums,
+table td,
+.data-metric {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Typography Hierarchy Tokens */
+.display-lg {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 52px;
+  letter-spacing: -0.02em;
+}
+
+.headline-lg {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+}
+
+.headline-md {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.headline-sm {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.title-lg {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.body-lg {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.body-md {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.body-sm {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.label-lg {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.label-md {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.label-sm {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Button Component Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 10px 20px;
+  height: 42px;
+  border-radius: var(--rounded-md);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  border: 1.5px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary Gold CTA */
+.btn-primary-gold {
+  background-color: var(--recovery-gold);
+  color: #ffffff;
+  border-color: var(--recovery-gold);
+  box-shadow: 0 2px 4px rgba(230, 128, 0, 0.2);
+}
+
+.btn-primary-gold:hover {
+  background-color: var(--recovery-gold-hover);
+  border-color: var(--recovery-gold-hover);
+}
+
+.btn-primary-gold:active {
+  background-color: var(--recovery-gold-active);
+  border-color: var(--recovery-gold-active);
+  transform: translateY(1px);
+}
+
+.btn-primary-gold:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-gold-focus);
+}
+
+/* Secondary Blue Action */
+.btn-secondary-blue {
+  background-color: #ffffff;
+  color: var(--trust-blue);
+  border-color: var(--trust-blue);
+}
+
+.btn-secondary-blue:hover {
+  background-color: var(--trust-blue-tint);
+}
+
+.btn-secondary-blue:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-blue-focus);
+}
+
+/* Navy Secondary Action */
+.btn-secondary-navy {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  border-color: var(--primary-navy);
+}
+
+.btn-secondary-navy:hover {
+  background-color: #12396e;
+  border-color: #12396e;
+}
+
+/* Ghost / Tertiary */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--primary-navy);
+  border-color: transparent;
+}
+
+.btn-ghost:hover {
+  background-color: var(--neutral-border);
+}
+
+.btn-sm {
+  height: 32px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.btn-lg {
+  height: 48px;
+  padding: 12px 28px;
+  font-size: 15px;
+}
+
+/* Status Pill Tokens */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--rounded-full);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  width: fit-content;
+}
+
+.status-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-pill.success {
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+  border-color: rgba(4, 120, 87, 0.2);
+}
+.status-pill.success .status-pill-dot {
+  background-color: var(--status-success-accent);
+}
+
+.status-pill.warning {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning-text);
+  border-color: rgba(180, 83, 9, 0.2);
+}
+.status-pill.warning .status-pill-dot {
+  background-color: var(--status-warning-accent);
+}
+
+.status-pill.error {
+  background-color: var(--status-error-bg);
+  color: var(--status-error-text);
+  border-color: rgba(185, 28, 28, 0.2);
+}
+.status-pill.error .status-pill-dot {
+  background-color: var(--status-error-accent);
+}
+
+.status-pill.info {
+  background-color: var(--status-info-bg);
+  color: var(--status-info-text);
+  border-color: rgba(29, 78, 216, 0.2);
+}
+.status-pill.info .status-pill-dot {
+  background-color: var(--status-info-accent);
+}
+
+/* Surface Cards & Containers */
+.surface-card {
+  background-color: var(--surface-container-lowest);
+  border: 1px solid var(--neutral-border);
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow-tier-1);
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.surface-card-authority {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow-authority);
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-top-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+/* Forms & Naira Input Containers */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--neutral-charcoal);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-hint {
+  font-size: 12px;
+  color: var(--outline);
+  font-weight: 400;
+}
+
+.form-control,
+.form-select,
+.form-textarea {
+  height: 44px;
+  padding: 10px 14px;
+  background-color: #ffffff;
+  border: 1px solid var(--neutral-border);
+  border-radius: var(--rounded-md);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--neutral-charcoal);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+}
+
+.form-textarea {
+  height: auto;
+  min-height: 96px;
+  resize: vertical;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--trust-blue);
+  box-shadow: var(--shadow-blue-focus);
+}
+
+.form-control::placeholder,
+.form-textarea::placeholder {
+  color: var(--neutral-placeholder);
+}
+
+/* Naira Currency Input Component */
+.currency-input-wrapper {
+  display: flex;
+  align-items: stretch;
+  height: 44px;
+  background-color: #ffffff;
+  border: 1px solid var(--neutral-border);
+  border-radius: var(--rounded-md);
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.currency-input-wrapper:focus-within {
+  border-color: var(--trust-blue);
+  box-shadow: var(--shadow-blue-focus);
+}
+
+.currency-prefix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  background-color: var(--neutral-canvas);
+  color: var(--neutral-charcoal);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  border-right: 1px solid var(--neutral-border);
+  user-select: none;
+}
+
+.currency-input-wrapper input {
+  border: none;
+  background: transparent;
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--neutral-charcoal);
+  width: 100%;
+  outline: none;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Modal Scrim & Container (Tier 3 Elevation) */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--backdrop-scrim);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-md);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-dialog {
+  background-color: #ffffff;
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow-tier-3);
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--neutral-border);
+  position: relative;
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-header {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--neutral-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-body {
+  padding: var(--space-lg);
+}
+
+.modal-footer {
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--surface);
+  border-top: 1px solid var(--neutral-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-md);
+  border-bottom-left-radius: var(--rounded-lg);
+  border-bottom-right-radius: var(--rounded-lg);
+}
+
+/* App Layout Grid & Container */
+.app-container {
+  max-width: var(--max-container);
+  margin: 0 auto;
+  padding: 0 var(--margin);
+}
+
+@media (max-width: 1024px) {
+  .app-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 var(--margin-sm);
+  }
+  
+  .display-lg {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  
+  .headline-lg {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.4; }
+}
+
+.pulse-indicator {
+  animation: pulseGlow 2s infinite;
+}
+
+/* Portal Sidebar & Dashboard Responsiveness */
+@media (max-width: 900px) {
+  .desktop-sidebar-container {
+    display: none !important;
+  }
+  .mobile-hamburger-btn {
+    display: inline-flex !important;
+  }
+  .fast-track-hero {
+    grid-template-columns: 1fr !important;
+  }
+}
