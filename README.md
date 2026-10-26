@@ -289,5 +289,5 @@ The frontend communicates with the REST backend via the `services/` directory:
 
 ## 📄 License & Attribution
 
-Designed and engineered for **Sovereign Recovery (Rekovry)**. All rights reserved.
-Built in compliance with Central Bank of Nigeria (CBN) and FCCPA guidelines for consumer financial protection.
+Designed and engineered for **Rekovry**. All rights reserved.
+Built in compliance with consumer financial protection guidelines.
