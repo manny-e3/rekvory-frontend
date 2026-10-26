@@ -69,6 +69,7 @@ export default function PortalLayout({
         
         {/* Top Header Bar with Profile */}
         <header
+          className="portal-top-header"
           style={{
             padding: '16px 36px',
             display: 'flex',
@@ -443,6 +444,14 @@ export default function PortalLayout({
         </div>
       )}
 
+      {/* Responsive styles */}
+      <style>{`
+        @media (max-width: 768px) {
+          .portal-top-header {
+            padding: 12px 16px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

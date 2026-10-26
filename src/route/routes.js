@@ -1,6 +1,8 @@
 // Sovereign Recovery - Route Path Definitions
 export const ROUTES = {
   HOME: '/',
+  COMING_SOON: '/coming-soon',
+  LANDING: '/landing',
   LOGIN: '/login',
   REGISTER: '/register',
   VERIFY_EMAIL: '/verify-email',

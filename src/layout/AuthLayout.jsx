@@ -15,7 +15,7 @@ export default function AuthLayout({
     'Statutory 72-Hour Response Time Enforcement',
     'Section 84 Evidence Act Certified Audit Vouchers'
   ],
-  securityNote = '256-Bit TLS Bank-Grade Encryption • NDPR Certified'
+
 }) {
   return (
     <div
@@ -165,26 +165,12 @@ export default function AuthLayout({
             </div>
           </div>
 
-          {/* Bottom Security Note */}
-          <div
-            style={{
-              paddingTop: '24px',
-              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              fontSize: '11px',
-              color: 'rgba(255, 255, 255, 0.6)',
-              marginTop: '32px'
-            }}
-          >
-            <Lock size={14} color="#acc7fe" />
-            <span>{securityNote}</span>
-          </div>
+
         </div>
 
         {/* Right Side: Interactive Form Container (White) */}
         <div
+          className="auth-form-container"
           style={{
             padding: '44px 40px',
             display: 'flex',
@@ -193,6 +179,41 @@ export default function AuthLayout({
             backgroundColor: '#ffffff'
           }}
         >
+          {/* Mobile-Only Header Brand Bar */}
+          <div
+            className="auth-mobile-header"
+            style={{
+              display: 'none',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBottom: '20px',
+              paddingBottom: '16px',
+              borderBottom: '1px solid var(--neutral-border)'
+            }}
+          >
+            <div onClick={onBackToHome} style={{ cursor: 'pointer' }}>
+              <BrandLogo light={false} text="REKOVRY" />
+            </div>
+            <button
+              onClick={onBackToHome}
+              style={{
+                background: '#f1f5f9',
+                border: '1px solid var(--neutral-border)',
+                color: 'var(--neutral-charcoal)',
+                fontSize: '12px',
+                padding: '6px 12px',
+                borderRadius: 'var(--rounded-full)',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}
+            >
+              <ArrowLeft size={13} />
+              <span>Home</span>
+            </button>
+          </div>
+
           <div style={{ marginBottom: '24px' }}>
             <h1
               className="headline-md"
@@ -234,13 +255,7 @@ export default function AuthLayout({
           <Lock size={12} color="#acc7fe" />
           <span>© 2026 REKOVRY Technologies Ltd. All rights reserved.</span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-          <span>CBN Dispute Resolution Framework</span>
-          <span>•</span>
-          <span>NDPR Data Privacy Certified</span>
-          <span>•</span>
-          <span>Section 84 Evidence Act Certified</span>
-        </div>
+
       </footer>
 
       <style>{`
@@ -250,6 +265,12 @@ export default function AuthLayout({
           }
           .auth-sidebar {
             display: none !important;
+          }
+          .auth-mobile-header {
+            display: flex !important;
+          }
+          .auth-form-container {
+            padding: 28px 20px !important;
           }
         }
       `}</style>

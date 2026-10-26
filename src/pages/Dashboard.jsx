@@ -290,6 +290,7 @@ export default function DashboardView({
         
         {/* Top Header Bar with Profile */}
         <header
+          className="portal-top-header"
           style={{
             padding: '16px 36px',
             display: 'flex',
@@ -443,7 +444,7 @@ export default function DashboardView({
       </header>
 
         {/* Scrollable Dashboard Body */}
-        <div style={{ padding: '32px 36px 60px', flex: 1 }}>
+        <div className="dashboard-body" style={{ padding: '32px 36px 60px', flex: 1 }}>
           <div style={{ maxWidth: '1120px', margin: '0 auto' }}>
             
             {/* 3. Account Overview Header & Stats Row */}
@@ -1375,6 +1376,17 @@ export default function DashboardView({
         </div>
       )}
 
+      {/* Mobile Responsive styles */}
+      <style>{`
+        @media (max-width: 768px) {
+          .portal-top-header {
+            padding: 12px 16px !important;
+          }
+          .dashboard-body {
+            padding: 18px 16px 40px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

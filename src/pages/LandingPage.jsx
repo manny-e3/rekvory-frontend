@@ -95,6 +95,7 @@ export default function LandingPageView({
       
       {/* 1. HERO SECTION (Dark Sovereign Navy) */}
       <section
+        className="hero-section"
         style={{
           background: 'linear-gradient(135deg, #021129 0%, #081d3d 50%, #0d2852 100%)',
           color: '#ffffff',
@@ -140,9 +141,10 @@ export default function LandingPageView({
             className="hero-grid"
           >
             {/* Left Column: Headline & Action Triggers */}
-            <div>
+            <div className="hero-content-col">
               {/* Protocol Status Pill */}
               <div
+                className="hero-protocol-pill"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -151,7 +153,9 @@ export default function LandingPageView({
                   border: '1px solid rgba(255, 255, 255, 0.18)',
                   padding: '6px 14px',
                   borderRadius: 'var(--rounded-full)',
-                  marginBottom: '24px'
+                  marginBottom: '20px',
+                  maxWidth: '100%',
+                  boxSizing: 'border-box'
                 }}
               >
                 <span
@@ -160,17 +164,20 @@ export default function LandingPageView({
                     height: '7px',
                     borderRadius: '50%',
                     backgroundColor: '#E68000',
-                    display: 'inline-block'
+                    display: 'inline-block',
+                    flexShrink: 0
                   }}
                 />
                 <span
+                  className="hero-protocol-text"
                   style={{
                     fontFamily: 'var(--font-body)',
                     fontSize: '11px',
                     fontWeight: 700,
-                    letterSpacing: '0.08em',
+                    letterSpacing: '0.06em',
                     color: '#ffffff',
-                    textTransform: 'uppercase'
+                    textTransform: 'uppercase',
+                    lineHeight: '1.4'
                   }}
                 >
                   CBN DISPUTE RESOLUTION PROTOCOLS ACTIVE
@@ -179,10 +186,10 @@ export default function LandingPageView({
 
               {/* Main Headline */}
               <h1
-                className="display-lg"
+                className="display-lg hero-headline"
                 style={{
                   color: '#ffffff',
-                  fontSize: '48px',
+                  fontSize: 'clamp(28px, 6.5vw, 48px)',
                   lineHeight: '1.15',
                   letterSpacing: '-0.02em',
                   marginBottom: '16px'
@@ -195,6 +202,7 @@ export default function LandingPageView({
 
               {/* Description Paragraph */}
               <p
+                className="hero-desc"
                 style={{
                   fontSize: '16px',
                   lineHeight: '1.6',
@@ -208,6 +216,7 @@ export default function LandingPageView({
 
               {/* CTA Action Buttons */}
               <div
+                className="hero-cta-group"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -253,6 +262,7 @@ export default function LandingPageView({
 
               {/* Trust Footnotes Bar */}
               <div
+                className="hero-trust-bar"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -268,12 +278,12 @@ export default function LandingPageView({
                   <Shield size={14} color="#E68000" />
                   <span>Trusted across Nigeria</span>
                 </span>
-                <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>•</span>
+                <span className="hero-bullet" style={{ color: 'rgba(255, 255, 255, 0.3)' }}>•</span>
                 <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <CreditCard size={14} color="#E68000" />
                   <span className="tabular-nums">Over ₦450M recovered</span>
                 </span>
-                <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>•</span>
+                <span className="hero-bullet" style={{ color: 'rgba(255, 255, 255, 0.3)' }}>•</span>
                 <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <Scale size={14} color="#E68000" />
                   <span>Fast legal resolution</span>
@@ -312,6 +322,7 @@ export default function LandingPageView({
 
                 {/* Floating "Tier-1 Interbank Recourse" Badge */}
                 <div
+                  className="hero-floating-badge"
                   style={{
                     position: 'absolute',
                     bottom: '20px',
@@ -360,9 +371,10 @@ export default function LandingPageView({
       </section>
 
       {/* 2. FLOATING CARD: "What do you need help recovering?" */}
-      <section style={{ position: 'relative', marginTop: '-65px', zIndex: 10, marginBottom: '48px' }}>
+      <section style={{ position: 'relative', marginTop: '-65px', zIndex: 10, marginBottom: '48px' }} className="categories-section">
         <div className="app-container">
           <div
+            className="categories-card"
             style={{
               backgroundColor: '#ffffff',
               borderRadius: '16px',
@@ -386,6 +398,7 @@ export default function LandingPageView({
 
             {/* 6 Category Tiles */}
             <div
+              className="categories-grid"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
@@ -677,6 +690,7 @@ export default function LandingPageView({
       <section style={{ padding: '0 0 80px' }}>
         <div className="app-container">
           <div
+            className="law-card"
             style={{
               backgroundColor: '#ffffff',
               border: '1px solid #e9edf5',
@@ -980,7 +994,9 @@ export default function LandingPageView({
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    border: '1px solid #e2e8f4'
+                    border: '1px solid #e2e8f4',
+                    flexWrap: 'wrap',
+                    gap: '10px'
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#0B2D5B' }}>
@@ -1020,14 +1036,82 @@ export default function LandingPageView({
           .hero-grid {
             grid-template-columns: 1fr !important;
             text-align: center;
+            gap: 36px !important;
           }
-          .hero-grid div:first-child {
+          .hero-grid > div:first-child {
             display: flex;
             flex-direction: column;
             align-items: center;
           }
           .law-section-grid {
             grid-template-columns: 1fr !important;
+            gap: 28px !important;
+          }
+          .hero-cta-group {
+            justify-content: center !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .hero-section {
+            padding: 40px 0 60px !important;
+          }
+          .hero-headline {
+            font-size: clamp(26px, 7vw, 36px) !important;
+          }
+          .hero-desc {
+            font-size: 14.5px !important;
+            margin-bottom: 24px !important;
+          }
+          .categories-section {
+            margin-top: -24px !important;
+            margin-bottom: 32px !important;
+          }
+          .categories-card {
+            padding: 24px 16px !important;
+          }
+          .categories-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+          }
+          .law-card {
+            padding: 20px 16px !important;
+          }
+          .hero-floating-badge {
+            left: 10px !important;
+            right: 10px !important;
+            bottom: 10px !important;
+            max-width: calc(100% - 20px) !important;
+            padding: 10px 12px !important;
+          }
+          .hero-trust-bar {
+            justify-content: center !important;
+            gap: 8px !important;
+            font-size: 11.5px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .hero-cta-group {
+            flex-direction: column !important;
+            width: 100% !important;
+            gap: 12px !important;
+          }
+          .hero-cta-group button {
+            width: 100% !important;
+          }
+          .hero-bullet {
+            display: none !important;
+          }
+          .hero-trust-bar {
+            flex-direction: column !important;
+            gap: 6px !important;
+          }
+          .hero-protocol-text {
+            font-size: 9px !important;
+            letter-spacing: 0.04em !important;
+          }
+          .categories-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 8px !important;
           }
         }
       `}</style>

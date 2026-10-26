@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { ROUTES } from './routes';
 import ProtectedRoute from './ProtectedRoute';
 import {
+  ComingSoon,
   LandingPage,
   Dashboard,
   MyClaims,
@@ -51,8 +52,12 @@ export default function AppRoutes({
 
   return (
     <Routes>
-      {/* 1. Public Marketing & Regulatory Routes */}
+      {/* 1. Public Marketing, Launch & Regulatory Routes */}
       <Route path={ROUTES.HOME} element={<LandingPage />} />
+      <Route path={ROUTES.COMING_SOON} element={<ComingSoon />} />
+      <Route path={ROUTES.LANDING} element={<LandingPage />} />
+      <Route path="/home" element={<LandingPage />} />
+      <Route path="/preview" element={<LandingPage />} />
       <Route path={ROUTES.COMPLIANCE} element={<Compliance />} />
 
       {/* 2. Authentication Flow Routes */}

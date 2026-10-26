@@ -397,6 +397,7 @@ export default function NewClaimWizard({
           {/* Stepper Header Bar */}
           {step <= 4 && (
             <div
+              className="newclaim-stepper-box"
               style={{
                 backgroundColor: '#ffffff',
                 borderRadius: '16px',
@@ -407,6 +408,7 @@ export default function NewClaimWizard({
               }}
             >
               <div
+                className="newclaim-steps-grid"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(4, 1fr)',
@@ -1330,6 +1332,23 @@ export default function NewClaimWizard({
 
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .newclaim-steps-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 8px !important;
+          }
+          .newclaim-stepper-box {
+            padding: 12px 14px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .newclaim-steps-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </PortalLayout>
   );
 }

@@ -428,8 +428,9 @@ export default function App() {
     (path) => location.pathname === path || location.pathname.startsWith(path + '/')
   );
 
-  // Public pages (/ and /compliance) show the marketing header and footer
-  const hidePublicNav = isAuthRoute || isPortalRoute;
+  // Public pages show marketing header, but Coming Soon has its own integrated sovereign header & footer
+  const isComingSoonRoute = location.pathname === '/coming-soon' || location.pathname === ROUTES.COMING_SOON;
+  const hidePublicNav = isAuthRoute || isPortalRoute || isComingSoonRoute;
 
   return (
     <div

@@ -413,7 +413,7 @@ export default function RegisterView({
               }}
             >
               <User size={15} color={isIndividual ? '#ffffff' : '#64748b'} />
-              <span>Individual / Claimant</span>
+              <span>Individual</span>
             </button>
 
             <button
@@ -475,7 +475,7 @@ export default function RegisterView({
           </div>
 
           {/* Email & Phone Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="form-grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
             <div className="form-group">
               <label className="form-label">
                 {isIndividual ? 'Email Address' : 'Official Legal Email'}
@@ -486,7 +486,7 @@ export default function RegisterView({
                   type="email"
                   className="form-control"
                   style={{ paddingLeft: '36px' }}
-                  placeholder={isIndividual ? 'claimant@domain.ng' : 'counsel@apexjuris.ng'}
+                  placeholder={isIndividual ? 'example@mail.com' : 'example@mail.com'}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -506,10 +506,10 @@ export default function RegisterView({
               <div style={{ position: 'relative' }}>
                 <Phone size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--outline)' }} />
                 <input
-                  type="tel"
+                  type="number"
                   className="form-control"
                   style={{ paddingLeft: '36px' }}
-                  placeholder="+2348030000000"
+                  placeholder="08030000000"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   required
@@ -524,7 +524,7 @@ export default function RegisterView({
           </div>
 
           {/* Passwords Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="form-grid-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
             <div className="form-group">
               <label className="form-label">Create Password</label>
               <div style={{ position: 'relative' }}>

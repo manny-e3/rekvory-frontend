@@ -13,6 +13,7 @@ export default function Footer() {
 
   return (
     <footer
+      className="institutional-footer"
       style={{
         backgroundColor: '#010d21',
         color: '#ffffff',
@@ -286,13 +287,18 @@ export default function Footer() {
 
       <style>{`
         @media (max-width: 900px) {
+          .institutional-footer {
+            padding: 40px 0 24px !important;
+          }
           .footer-grid {
             grid-template-columns: 1fr 1fr !important;
+            gap: 28px !important;
           }
         }
         @media (max-width: 600px) {
           .footer-grid {
             grid-template-columns: 1fr !important;
+            gap: 24px !important;
           }
         }
       `}</style>
